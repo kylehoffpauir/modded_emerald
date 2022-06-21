@@ -226,6 +226,7 @@ static const struct ItemSlot sNewGamePCItems[] =
 {
     { ITEM_RARE_CANDY, 900 },
     { ITEM_RARE_CANDY, 900 },
+    { ITEM_RARE_CANDY, 1},
     { ITEM_NONE, 0 }
 };
 

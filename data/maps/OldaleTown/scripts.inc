@@ -94,6 +94,33 @@ OldaleTown_EventScript_BagIsFull::
 	release
 	end
 
+	
+OldaleTown_EventScript_GivePokemonDemo::
+	lock
+	faceplayer
+	goto_if_set OLDDALE_GIFT_PKMN_RECIEVED, OldaleTown_EventScript_Already_RECIEVED
+	msgbox OldaleTown_Text_TakeDratini, MSGBOX_DEFAULT
+	getpartysize
+	compare VAR_RESULT, 6
+	goto_if_eq OldaleTown_EventScript_PlayerHasFullParty
+	givemon SPECIES_DRATINI, 5, ITEM_DRAGON_FANG
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox OldaleTown_Text_ReceivedDratini, MSGBOX_DEFAULT
+	waitfanfare
+	setflag OLDDALE_GIFT_PKMN_RECIEVED
+	release
+	end
+
+OldaleTown_EventScript_Already_RECIEVED::
+	msgbox OldaleTown_Text_Take_Care, MSGBOX_DEFAULT
+	release
+	end
+
+OldaleTown_EventScript_PlayerHasFullParty::
+	msgbox OldaleTown_Text_PlayerHasFullParty, MSGBOX_DEFAULT
+	release
+	end
+
 OldaleTown_Movement_EmployeeEast:
 	walk_up
 	walk_up
@@ -399,3 +426,15 @@ OldaleTown_Text_CitySign:
 	.string "OLDALE TOWN\n"
 	.string "“Where things start off scarce.”$"
 
+
+OldaleTown_Text_TakeDratini:
+	.string "Please, take this Dratini.$"
+
+OldaleTown_Text_ReceivedDratini:
+	.string "{PLAYER} received a Dratini!$"
+
+OldaleTown_Text_Take_Care:
+	.string "Take good care of Dratini!$"
+
+OldaleTown_Text_PlayerHasFullParty:
+	.string "Ah, your party is full.$"

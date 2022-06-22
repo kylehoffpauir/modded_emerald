@@ -99,13 +99,13 @@ OldaleTown_EventScript_GivePokemonDemo::
 	lock
 	faceplayer
 	goto_if_set OLDDALE_GIFT_PKMN_RECIEVED, OldaleTown_EventScript_Already_RECIEVED
-	msgbox OldaleTown_Text_TakeDratini, MSGBOX_DEFAULT
+	msgbox OldaleTown_Text_TakeEevee, MSGBOX_DEFAULT
 	getpartysize
 	compare VAR_RESULT, 6
 	goto_if_eq OldaleTown_EventScript_PlayerHasFullParty
-	givemon SPECIES_DRATINI, 5, ITEM_DRAGON_FANG
+	givemon SPECIES_EEEVEE, 5, ITEM_SHINY_CHARM
 	playfanfare MUS_OBTAIN_ITEM
-	msgbox OldaleTown_Text_ReceivedDratini, MSGBOX_DEFAULT
+	msgbox OldaleTown_Text_ReceivedEevee, MSGBOX_DEFAULT
 	waitfanfare
 	setflag OLDDALE_GIFT_PKMN_RECIEVED
 	release
@@ -427,14 +427,14 @@ OldaleTown_Text_CitySign:
 	.string "“Where things start off scarce.”$"
 
 
-OldaleTown_Text_TakeDratini:
-	.string "Please, take this Dratini.$"
+OldaleTown_Text_TakeEevee:
+	.string "Please, take this Eevee.$"
 
-OldaleTown_Text_ReceivedDratini:
-	.string "{PLAYER} received a Dratini!$"
+OldaleTown_Text_ReceivedEevee:
+	.string "{PLAYER} received a Eevee!$"
 
 OldaleTown_Text_Take_Care:
-	.string "Take good care of Dratini!$"
+	.string "Take good care of Eevee!$"
 
 OldaleTown_Text_PlayerHasFullParty:
 	.string "Ah, your party is full.$"

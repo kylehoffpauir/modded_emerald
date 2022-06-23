@@ -22,6 +22,106 @@ DewfordTown_House2_EventScript_ExplainSilkScarf::
 	release
 	end
 
+
+DewfordTown_House2_EventScript_Boy::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_STONE, DewfordTown_House2_EventScript_AlreadyGot
+	random 7
+	switch VAR_RESULT
+	case 0, DewfordTown_House2_EventScript_RandomOption1
+	case 1, DewfordTown_House2_EventScript_RandomOption2
+	case 2, DewfordTown_House2_EventScript_RandomOption3
+	case 3, DewfordTown_House2_EventScript_RandomOption4
+	case 4, DewfordTown_House2_EventScript_RandomOption5
+	case 5, DewfordTown_House2_EventScript_RandomOption6
+	case 6, DewfordTown_House2_EventScript_RandomOption7
+	end
+
+DewfordTown_House2_EventScript_AlreadyGot::
+	msgbox DewfordTown_House2_Text_Wonder, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_House2_EventScript_NoRoomForStone::
+	msgbox DewfordTown_House2_Text_Noroom, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_House2_EventScript_RandomOption1::
+	msgbox DewfordTown_House2_Text_RandomOption, MSGBOX_DEFAULT
+	giveitem ITEM_THUNDER_STONE
+	compare VAR_RESULT, 0
+    goto_if_eq DewfordTown_House2_EventScript_NoRoomForStone
+    setflag FLAG_RECEIVED_STONE
+	release
+	end
+
+DewfordTown_House2_EventScript_RandomOption2::
+	msgbox DewfordTown_House2_Text_RandomOption, MSGBOX_DEFAULT
+	giveitem ITEM_WATER_STONE
+	compare VAR_RESULT, 0
+    goto_if_eq DewfordTown_House2_EventScript_NoRoomForStone
+    setflag FLAG_RECEIVED_STONE
+	release
+	end
+
+DewfordTown_House2_EventScript_RandomOption3::
+	msgbox DewfordTown_House2_Text_RandomOption, MSGBOX_DEFAULT
+	giveitem ITEM_FIRE_STONE
+	compare VAR_RESULT, 0
+    goto_if_eq DewfordTown_House2_EventScript_NoRoomForStone
+    setflag FLAG_RECEIVED_STONE
+	release
+	end
+
+
+DewfordTown_House2_EventScript_RandomOption4::
+	msgbox DewfordTown_House2_Text_RandomOption, MSGBOX_DEFAULT
+	giveitem ITEM_ICE_STONE
+	compare VAR_RESULT, 0
+    goto_if_eq DewfordTown_House2_EventScript_NoRoomForStone
+    setflag FLAG_RECEIVED_STONE
+	release
+	end
+
+DewfordTown_House2_EventScript_RandomOption5::
+	msgbox DewfordTown_House2_Text_RandomOption, MSGBOX_DEFAULT
+	giveitem ITEM_LEAF_STONE
+	compare VAR_RESULT, 0
+    goto_if_eq DewfordTown_House2_EventScript_NoRoomForStone
+    setflag FLAG_RECEIVED_STONE
+	release
+	end
+
+DewfordTown_House2_EventScript_RandomOption6::
+	msgbox DewfordTown_House2_Text_RandomOption, MSGBOX_DEFAULT
+	giveitem ITEM_SHINY_STONE
+	compare VAR_RESULT, 0
+    goto_if_eq DewfordTown_House2_EventScript_NoRoomForStone
+    setflag FLAG_RECEIVED_STONE
+	release
+	end
+
+DewfordTown_House2_EventScript_RandomOption7::
+	msgbox DewfordTown_House2_Text_RandomOption, MSGBOX_DEFAULT
+	giveitem ITEM_DUSK_STONE
+	compare VAR_RESULT, 0
+    goto_if_eq DewfordTown_House2_EventScript_NoRoomForStone
+    setflag FLAG_RECEIVED_STONE
+	release
+	end
+
+DewfordTown_House2_Text_Wonder:
+	.string "I wonder what that stone does...$"
+
+DewfordTown_House2_Text_Noroom:
+	.string "Come back when you have room in your inventory.$"
+
+DewfordTown_House2_Text_RandomOption:
+	.string "I found this stone in the caves but I \n"
+	.string "dont know what it's for.$"
+
 DewfordTown_House2_Text_WantYouToHaveSilkScarf:
 	.string "Gorge your eyes on this!\p"
 	.string "It's a SILK SCARF. It's right at the\n"
@@ -43,93 +143,5 @@ DewfordTown_House2_Text_ExplainSilkScarf:
 	.string "It's a marvelous SCARF that will go\n"
 	.string "with almost all POKéMON!$"
 
-DewfordTown_House2_EventScript_Boy::
-	lock
-	faceplayer
-	goto_if_set FLAG_RECEIVED_STONE, DewfordTown_House2_EventScript_AlreadyGot
-	random 7
-	switch VAR_RESULT
-	case 0, DewfordTown_House2_EventScript_RandomOption1
-	case 1, DewfordTown_House2_EventScript_RandomOption2
-	case 2, DewfordTown_House2_EventScript_RandomOption3
-	case 3, DewfordTown_House2_EventScript_RandomOption4
-	case 4, DewfordTown_House2_EventScript_RandomOption5
-	case 5, DewfordTown_House2_EventScript_RandomOption6
-	case 6, DewfordTown_House2_EventScript_RandomOption7
-	end
-
-DewfordTown_House2_EventScript_AlreadyGot::
-	msgbox Text_Wonder, MSGBOX_DEFAULT
-	release
-	end
-
-DewfordTown_House2_EventScript_NoRoomForStone::
-	msgbox Text_Noroom, MSGBOX_DEFAULT
-	release
-	end
-
-DewfordTown_House2_EventScript_RandomOption1::
-	msgbox Text_RandomOption, MSGBOX_DEFAULT
-	giveitem ITEM_THUNDER_STONE
-	goto_if_eq VAR_RESULT, FALSE, DewfordTown_House2_EventScript_NoRoomForStone
-	set FLAG_RECEIVED_STONE
-	release
-	end
-
-DewfordTown_House2_EventScript_RandomOption2::
-	msgbox Text_RandomOption, MSGBOX_DEFAULT
-	giveitem ITEM_WATER_STONE
-	goto_if_eq VAR_RESULT, FALSE, DewfordTown_House2_EventScript_NoRoomForStone
-	set FLAG_RECEIVED_STONE
-	release
-	end
-
-DewfordTown_House2_EventScript_RandomOption3::
-	msgbox Text_RandomOption, MSGBOX_DEFAULT
-	giveitem ITEM_FIRE_STONE
-	goto_if_eq VAR_RESULT, FALSE, DewfordTown_House2_EventScript_NoRoomForStone
-	set FLAG_RECEIVED_STONE
-	release
-	end
 
 
-DewfordTown_House2_EventScript_RandomOption4::
-	msgbox Text_RandomOption, MSGBOX_DEFAULT
-	giveitem ITEM_ICE_STONE
-	goto_if_eq VAR_RESULT, FALSE, DewfordTown_House2_EventScript_NoRoomForStone
-	set FLAG_RECEIVED_STONE
-	release
-	end
-
-DewfordTown_House2_EventScript_RandomOption5::
-	msgbox Text_RandomOption, MSGBOX_DEFAULT
-	giveitem ITEM_LEAF_STONE
-	goto_if_eq VAR_RESULT, FALSE, DewfordTown_House2_EventScript_NoRoomForStone
-	set FLAG_RECEIVED_STONE
-	release
-	end
-
-DewfordTown_House2_EventScript_RandomOption6::
-	msgbox Text_RandomOption, MSGBOX_DEFAULT
-	giveitem ITEM_SHINY_STONE
-	goto_if_eq VAR_RESULT, FALSE, DewfordTown_House2_EventScript_NoRoomForStone
-	set FLAG_RECEIVED_STONE
-	release
-	end
-
-DewfordTown_House2_EventScript_RandomOption7::
-	msgbox Text_RandomOption, MSGBOX_DEFAULT
-	giveitem ITEM_DUSK_STONE
-	goto_if_eq VAR_RESULT, FALSE, DewfordTown_House2_EventScript_NoRoomForStone
-	set FLAG_RECEIVED_STONE
-	release
-	end
-
-Text_Wonder:
-	.string "I wonder what that stone does...$"
-
-Text_Noroom:
-	.string "Come back when you have room in your inventory.$"
-
-Text_RandomOption:
-	.string "I found this stone in the caves but I dont know what it's for.$"

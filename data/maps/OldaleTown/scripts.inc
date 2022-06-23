@@ -103,7 +103,7 @@ OldaleTown_EventScript_GivePokemonDemo::
 	getpartysize
 	compare VAR_RESULT, 6
 	goto_if_eq OldaleTown_EventScript_PlayerHasFullParty
-	givemon SPECIES_EEEVEE, 5, ITEM_SHINY_CHARM
+	givemon SPECIES_EEVEE, 5, ITEM_SHINY_CHARM
 	playfanfare MUS_OBTAIN_ITEM
 	msgbox OldaleTown_Text_ReceivedEevee, MSGBOX_DEFAULT
 	waitfanfare
@@ -428,7 +428,9 @@ OldaleTown_Text_CitySign:
 
 
 OldaleTown_Text_TakeEevee:
-	.string "Please, take this Eevee.$"
+	.string "My mom said I'm not responsible\n"
+	.string "enough for a Pokemon\p"
+	.string "Will you take care of Eevee for me?$"
 
 OldaleTown_Text_ReceivedEevee:
 	.string "{PLAYER} received a Eevee!$"

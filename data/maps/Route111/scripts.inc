@@ -393,8 +393,36 @@ Route111_EventScript_TrainerTipsSpAtkSpDef::
 	end
 
 Route111_EventScript_Man1::
-	msgbox Route111_Text_ToughToKeepWinningUpTheRanks, MSGBOX_NPC
+	lock
+	faceplayer
+	msgbox Route111Text_RestUpHere, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route111EventScript_Rest
+	goto_if_eq VAR_RESULT, NO, Route111EventScript_DeclineRest
 	end
+
+Route111EventScript_Rest::
+	msgbox Route111Text_TakeYourTimeRestUp, MSGBOX_DEFAULT
+	closemessage
+	call Common_EventScript_OutOfCenterPartyHeal
+	end
+
+Route111EventScript_DeclineRest::
+	msgbox Route111Text_DontNeedToBeShy, MSGBOX_DEFAULT
+	release
+	end
+
+Route111Text_RestUpHere:
+	.string "Oh, sweetheart.\n"
+	.string "Your poor POKéMON...\p"
+	.string "If you'd like, I can heal them for you.$"
+
+Route111Text_TakeYourTimeRestUp:
+	.string "Just give me a second!\n"
+	.string "They'll be healthy in no time!$"
+
+Route111Text_DontNeedToBeShy:
+	.string "I see...\n"
+	.string "Please be careful out here.$"
 
 Route111_EventScript_Man2::
 	msgbox Route111_Text_WinstrateFamilyDestroyedMe, MSGBOX_NPC

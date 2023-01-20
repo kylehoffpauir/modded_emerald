@@ -10841,6 +10841,11 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MayRustboroTorchic[] = {
     {
     .iv = 100,
     .lvl = 16,
+    .species = SPECIES_PONYTA,
+    }
+    {
+    .iv = 100,
+    .lvl = 16,
     .species = SPECIES_SKITTY,
     }
 };
